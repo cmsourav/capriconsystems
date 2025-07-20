@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="font-body antialiased">
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen animated-background">
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
