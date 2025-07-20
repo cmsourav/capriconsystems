@@ -150,7 +150,7 @@ export default function Home() {
               <AnimateOnScroll key={index} delay={index * 0.1}>
                 <GlowCard 
                   className={cn(
-                    "overflow-hidden group transform transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/20 hover:shadow-2xl h-full",
+                    "overflow-hidden group transform transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_35px_5px_rgba(125,249,255,0.2)] h-full",
                     )}
                 >
                   <Card className="bg-transparent h-full">

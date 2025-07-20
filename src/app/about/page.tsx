@@ -68,7 +68,7 @@ export default function AboutPage() {
              <AnimateOnScroll key={member.name} delay={0.1 + index * 0.1}>
               <GlowCard 
                 className={cn(
-                  "text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl hover:-translate-y-1 h-full",
+                  "text-center transition-all duration-300 hover:shadow-[0_0_35px_5px_rgba(125,249,255,0.2)] hover:-translate-y-1 h-full",
                 )}
               >
                 <Card className="bg-transparent h-full">
