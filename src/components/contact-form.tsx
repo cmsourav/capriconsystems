@@ -10,7 +10,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useGlow } from '@/hooks/use-glow';
+import { cn } from '@/lib/utils';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -22,6 +24,9 @@ const formSchema = z.object({
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  useGlow(cardRef);
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -54,7 +59,7 @@ export function ContactForm() {
   }
 
   return (
-    <Card>
+    <Card ref={cardRef} className="glow-card">
       <CardHeader>
         <CardTitle className="font-headline">Send us a Message</CardTitle>
         <CardDescription>Fill out the form below and we'll get back to you.</CardDescription>
@@ -114,7 +119,7 @@ export function ContactForm() {
                 </FormItem>
               )}
             />
-            <Button type="submit" disabled={isSubmitting} className="w-full">
+            <Button type="submit" disabled={isSubmitting} className="w-full glow-card">
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
           </form>

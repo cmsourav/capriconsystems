@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { useGlow } from '@/hooks/use-glow';
+import React, { useRef } from 'react';
 
 const teamMembers = [
   { name: 'Alex Johnson', role: 'Founder & Lead Engineer', avatar: 'https://placehold.co/100x100.png', aiHint: 'man portrait' },
@@ -9,9 +13,19 @@ const teamMembers = [
   { name: 'Sam Chen', role: 'Customer Support Lead', avatar: 'https://placehold.co/100x100.png', aiHint: 'person portrait' },
 ];
 
+const GlowCard = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useGlow(ref);
+  return (
+    <div ref={ref} className={cn("glow-card", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
+    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-blur">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">About LuminTech Solutions</h1>
@@ -23,7 +37,7 @@ export default function AboutPage() {
       {/* Our Mission Section */}
       <section className="mb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
+          <div className="order-2 md:order-1 animate-fade-in-blur" style={{ animationDelay: '150ms' }}>
             <h2 className="font-headline text-3xl font-bold mb-4">Our Mission</h2>
             <p className="text-muted-foreground mb-4">
               Our mission is to empower gamers, creators, and professionals with technology that unleashes their full potential. We believe in quality craftsmanship, transparent pricing, and building lasting relationships with our clients. Every machine we build and every problem we solve is a testament to our commitment to excellence.
@@ -32,7 +46,7 @@ export default function AboutPage() {
               Founded in 2020, LuminTech was born from a desire to create a computer shop that prioritizes customer needs and pushes the boundaries of performance and design.
             </p>
           </div>
-          <div className="order-1 md:order-2">
+          <div className="order-1 md:order-2 animate-fade-in-blur" style={{ animationDelay: '300ms' }}>
             <Image 
               src="https://placehold.co/600x400.png"
               alt="Our workshop"
@@ -47,25 +61,27 @@ export default function AboutPage() {
 
       {/* Meet the Team Section */}
       <section>
-        <h2 className="font-headline text-3xl font-bold text-center mb-12">Meet the Team</h2>
+        <h2 className="font-headline text-3xl font-bold text-center mb-12 animate-fade-in-blur" style={{ animationDelay: '450ms' }}>Meet the Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
-            <Card 
+            <GlowCard 
               key={member.name} 
               className={cn(
-                "text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up",
+                "text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl hover:-translate-y-1 animate-fade-in-blur",
               )}
-              style={{ animationDelay: `${index * 150}ms`}}
+              style={{ animationDelay: `${500 + index * 150}ms`}}
             >
-              <CardContent className="p-6 flex flex-col items-center">
-                <Avatar className="w-24 h-24 mb-4 border-2 border-primary">
-                  <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.aiHint}/>
-                  <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <h3 className="font-headline text-xl font-semibold">{member.name}</h3>
-                <p className="text-primary">{member.role}</p>
-              </CardContent>
-            </Card>
+              <Card className="bg-transparent h-full">
+                <CardContent className="p-6 flex flex-col items-center">
+                  <Avatar className="w-24 h-24 mb-4 border-2 border-primary">
+                    <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.aiHint}/>
+                    <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
+                  </Avatar>
+                  <h3 className="font-headline text-xl font-semibold">{member.name}</h3>
+                  <p className="text-primary">{member.role}</p>
+                </CardContent>
+              </Card>
+            </GlowCard>
           ))}
         </div>
       </section>

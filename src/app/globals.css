@@ -55,5 +55,37 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Add a global animation property for a smoother feel */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer components {
+  /* Add a class for the glow effect on cards */
+  .glow-card {
+    @apply relative overflow-hidden;
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, hsl(var(--primary) / 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+  }
+
+  .glow-card:hover::before {
+    opacity: 1;
   }
 }

@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Wrench, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useGlow } from '@/hooks/use-glow';
 
 const services = ['Builds', 'Repairs', 'Upgrades', 'Solutions'];
 
@@ -80,12 +81,22 @@ function AnimatedHeroText() {
   );
 }
 
+const GlowCard = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useGlow(ref);
+  return (
+    <div ref={ref} className={cn("glow-card", className)} {...props}>
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full text-center py-20 md:py-32 lg:py-40 bg-background">
-        <div className="container mx-auto px-4 animate-fade-in-up">
+        <div className="container mx-auto px-4 animate-fade-in-blur">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight">
             Cutting-Edge Tech
             <br />
@@ -95,10 +106,10 @@ export default function Home() {
             LuminTech Solutions is your premier destination for high-performance custom PCs, expert repairs, and future-proof upgrades.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="glow-card">
               <Link href="/services">Explore Services</Link>
             </Button>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="glow-card">
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>
@@ -108,12 +119,12 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="w-full py-16 md:py-24 bg-card/50">
           <div className="container mx-auto px-4">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-up">Why Choose LuminTech?</h2>
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-blur">Why Choose LuminTech?</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChooseUsItems.map((item, index) => (
                     <div 
                       key={index} 
-                      className="flex flex-col items-center text-center p-6 animate-fade-in-up"
+                      className="flex flex-col items-center text-center p-6 animate-fade-in-blur"
                       style={{ animationDelay: `${index * 150}ms`}}
                     >
                         {item.icon}
@@ -128,34 +139,36 @@ export default function Home() {
       {/* Featured Services Section */}
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-up">Featured Services</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-blur">Featured Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
-              <Card 
+              <GlowCard 
                 key={index} 
                 className={cn(
-                  "overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-primary/20 hover:shadow-2xl animate-fade-in-up",
+                  "overflow-hidden group transform transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/20 hover:shadow-2xl animate-fade-in-blur",
                   )}
                 style={{ animationDelay: `${index * 150}ms`}}
               >
-                <CardHeader className="p-0">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    width={600}
-                    height={400}
-                    data-ai-hint={service.aiHint}
-                    className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
-                  />
-                </CardHeader>
-                <CardContent className="p-6">
-                  <CardTitle className="font-headline text-2xl mb-2">{service.title}</CardTitle>
-                  <p className="text-muted-foreground mb-4">{service.description}</p>
-                  <Button asChild variant="link" className="p-0 h-auto text-primary">
-                    <Link href={service.link}>Learn More &rarr;</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+                <Card className="bg-transparent h-full">
+                  <CardHeader className="p-0">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={600}
+                      height={400}
+                      data-ai-hint={service.aiHint}
+                      className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
+                    />
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <CardTitle className="font-headline text-2xl mb-2">{service.title}</CardTitle>
+                    <p className="text-muted-foreground mb-4">{service.description}</p>
+                    <Button asChild variant="link" className="p-0 h-auto text-primary">
+                      <Link href={service.link}>Learn More &rarr;</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </GlowCard>
             ))}
           </div>
         </div>
