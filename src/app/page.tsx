@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Wrench, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useGlow } from '@/hooks/use-glow';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const services = ['Builds', 'Repairs', 'Upgrades', 'Solutions'];
 
@@ -96,7 +97,7 @@ export default function Home() {
     <div className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full text-center py-20 md:py-32 lg:py-40 bg-background">
-        <div className="container mx-auto px-4 animate-fade-in-blur">
+        <AnimateOnScroll className="container mx-auto px-4">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight">
             Cutting-Edge Tech
             <br />
@@ -113,24 +114,26 @@ export default function Home() {
               <Link href="/contact">Get a Quote</Link>
             </Button>
           </div>
-        </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Why Choose Us Section */}
       <section className="w-full py-16 md:py-24 bg-card/50">
           <div className="container mx-auto px-4">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-blur">Why Choose LuminTech?</h2>
+              <AnimateOnScroll>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Why Choose LuminTech?</h2>
+              </AnimateOnScroll>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChooseUsItems.map((item, index) => (
-                    <div 
+                    <AnimateOnScroll 
                       key={index} 
-                      className="flex flex-col items-center text-center p-6 animate-fade-in-blur"
-                      style={{ animationDelay: `${index * 150}ms`}}
+                      className="flex flex-col items-center text-center p-6"
+                      delay={index * 0.1}
                     >
                         {item.icon}
                         <h3 className="font-headline text-2xl font-semibold mt-6 mb-2">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
-                    </div>
+                    </AnimateOnScroll>
                 ))}
               </div>
           </div>
@@ -139,36 +142,38 @@ export default function Home() {
       {/* Featured Services Section */}
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-blur">Featured Services</h2>
+          <AnimateOnScroll>
+            <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Featured Services</h2>
+          </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
-              <GlowCard 
-                key={index} 
-                className={cn(
-                  "overflow-hidden group transform transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/20 hover:shadow-2xl animate-fade-in-blur",
-                  )}
-                style={{ animationDelay: `${index * 150}ms`}}
-              >
-                <Card className="bg-transparent h-full">
-                  <CardHeader className="p-0">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      data-ai-hint={service.aiHint}
-                      className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
-                    />
-                  </CardHeader>
-                  <CardContent className="p-6">
-                    <CardTitle className="font-headline text-2xl mb-2">{service.title}</CardTitle>
-                    <p className="text-muted-foreground mb-4">{service.description}</p>
-                    <Button asChild variant="link" className="p-0 h-auto text-primary">
-                      <Link href={service.link}>Learn More &rarr;</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </GlowCard>
+              <AnimateOnScroll key={index} delay={index * 0.1}>
+                <GlowCard 
+                  className={cn(
+                    "overflow-hidden group transform transition-all duration-300 hover:scale-[1.03] hover:shadow-primary/20 hover:shadow-2xl h-full",
+                    )}
+                >
+                  <Card className="bg-transparent h-full">
+                    <CardHeader className="p-0">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={600}
+                        height={400}
+                        data-ai-hint={service.aiHint}
+                        className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
+                      />
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <CardTitle className="font-headline text-2xl mb-2">{service.title}</CardTitle>
+                      <p className="text-muted-foreground mb-4">{service.description}</p>
+                      <Button asChild variant="link" className="p-0 h-auto text-primary">
+                        <Link href={service.link}>Learn More &rarr;</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </GlowCard>
+              </AnimateOnScroll>
             ))}
           </div>
         </div>

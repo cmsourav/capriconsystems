@@ -6,6 +6,7 @@ import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useGlow } from '@/hooks/use-glow';
 import React, { useRef } from 'react';
+import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const services = [
   {
@@ -54,45 +55,47 @@ const GlowCard = ({ children, className, ...props }: React.HTMLAttributes<HTMLDi
 
 export default function ServicesPage() {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-blur">
-      <section className="text-center mb-16">
+    <div className="container mx-auto px-4 py-16 md:py-24">
+      <AnimateOnScroll as="section" className="text-center mb-16">
         <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
           We offer a comprehensive range of services to meet all your computing needs.
         </p>
-      </section>
+      </AnimateOnScroll>
 
       <div className="space-y-20">
         {services.map((service, index) => (
           <section key={service.id} id={service.id} className="scroll-mt-20">
-            <GlowCard className="overflow-hidden animate-fade-in-blur transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl" style={{ animationDelay: `${index * 150}ms`}}>
-              <Card className="bg-transparent">
-                <div className={`grid md:grid-cols-2 items-center gap-8`}>
-                  <div className={`p-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
-                    <h2 className="font-headline text-3xl font-bold mb-4">{service.title}</h2>
-                    <p className="text-muted-foreground mb-6">{service.description}</p>
-                    <ul className="space-y-3">
-                      {service.features.map(feature => (
-                        <li key={feature} className="flex items-center gap-3">
-                          <CheckCircle className="w-5 h-5 text-primary" />
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+             <AnimateOnScroll>
+              <GlowCard className="overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl">
+                <Card className="bg-transparent">
+                  <div className={`grid md:grid-cols-2 items-center gap-8`}>
+                    <div className={`p-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+                      <h2 className="font-headline text-3xl font-bold mb-4">{service.title}</h2>
+                      <p className="text-muted-foreground mb-6">{service.description}</p>
+                      <ul className="space-y-3">
+                        {service.features.map(feature => (
+                          <li key={feature} className="flex items-center gap-3">
+                            <CheckCircle className="w-5 h-5 text-primary" />
+                            <span className="text-muted-foreground">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className={`overflow-hidden ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={600}
+                        height={400}
+                        data-ai-hint={service.aiHint}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
                   </div>
-                  <div className={`overflow-hidden ${index % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}>
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      width={600}
-                      height={400}
-                      data-ai-hint={service.aiHint}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                </div>
-              </Card>
-            </GlowCard>
+                </Card>
+              </GlowCard>
+            </AnimateOnScroll>
           </section>
         ))}
       </div>
