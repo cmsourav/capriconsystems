@@ -155,3 +155,40 @@
     overflow-x: hidden;
   }
 }
+
+@keyframes fade-in-blur {
+  '0%' {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+    filter: blur(3px);
+  }
+  '100%' {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-blur {
+    animation: fade-in-blur 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

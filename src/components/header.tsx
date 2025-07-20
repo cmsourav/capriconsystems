@@ -26,8 +26,8 @@ export function Header() {
         href={href}
         onClick={() => setSheetOpen(false)}
         className={cn(
-          'text-sm font-medium transition-colors hover:text-primary',
-          isActive ? 'text-primary' : 'text-muted-foreground',
+          'relative text-sm font-medium transition-colors hover:text-primary nav-link',
+          isActive ? 'text-primary active' : 'text-muted-foreground',
           isMobile && 'text-lg'
         )}
       >
@@ -37,7 +37,7 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/20 bg-background/50 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-white/20 bg-background/30 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Cpu className="h-6 w-6 text-primary" />
