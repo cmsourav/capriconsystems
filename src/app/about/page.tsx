@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 const teamMembers = [
   { name: 'Alex Johnson', role: 'Founder & Lead Engineer', avatar: 'https://placehold.co/100x100.png', aiHint: 'man portrait' },
@@ -10,7 +11,7 @@ const teamMembers = [
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
+    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
       {/* Hero Section */}
       <section className="text-center mb-16">
         <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">About LuminTech Solutions</h1>
@@ -48,8 +49,14 @@ export default function AboutPage() {
       <section>
         <h2 className="font-headline text-3xl font-bold text-center mb-12">Meet the Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map(member => (
-            <Card key={member.name} className="text-center">
+          {teamMembers.map((member, index) => (
+            <Card 
+              key={member.name} 
+              className={cn(
+                "text-center transition-all duration-300 hover:shadow-primary/20 hover:shadow-xl hover:-translate-y-1 animate-fade-in-up",
+              )}
+              style={{ animationDelay: `${index * 150}ms`}}
+            >
               <CardContent className="p-6 flex flex-col items-center">
                 <Avatar className="w-24 h-24 mb-4 border-2 border-primary">
                   <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.aiHint}/>

@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
+    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
       <section className="text-center mb-16">
         <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
@@ -12,7 +12,7 @@ export default function ContactPage() {
       </section>
 
       <div className="grid md:grid-cols-2 gap-12">
-        <div className="space-y-8">
+        <div className="space-y-8 animate-fade-in-up" style={{animationDelay: '150ms'}}>
           <h2 className="font-headline text-3xl font-bold">Contact Information</h2>
           <div className="flex items-start gap-4">
             <div className="p-3 rounded-md bg-primary/10">
@@ -49,7 +49,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div>
+        <div className="animate-fade-in-up" style={{animationDelay: '300ms'}}>
           <ContactForm />
         </div>
       </div>

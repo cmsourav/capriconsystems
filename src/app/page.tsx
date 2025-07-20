@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Award, Wrench, Zap } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const services = ['Builds', 'Repairs', 'Upgrades', 'Solutions'];
 
@@ -84,7 +85,7 @@ export default function Home() {
     <div className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full text-center py-20 md:py-32 lg:py-40 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 animate-fade-in-up">
           <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight">
             Cutting-Edge Tech
             <br />
@@ -107,10 +108,14 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="w-full py-16 md:py-24 bg-card/50">
           <div className="container mx-auto px-4">
-              <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Why Choose LuminTech?</h2>
+              <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-up">Why Choose LuminTech?</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChooseUsItems.map((item, index) => (
-                    <div key={index} className="flex flex-col items-center text-center p-6">
+                    <div 
+                      key={index} 
+                      className="flex flex-col items-center text-center p-6 animate-fade-in-up"
+                      style={{ animationDelay: `${index * 150}ms`}}
+                    >
                         {item.icon}
                         <h3 className="font-headline text-2xl font-semibold mt-6 mb-2">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
@@ -123,10 +128,16 @@ export default function Home() {
       {/* Featured Services Section */}
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Featured Services</h2>
+          <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12 animate-fade-in-up">Featured Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
-              <Card key={index} className="overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-primary/20 hover:shadow-2xl">
+              <Card 
+                key={index} 
+                className={cn(
+                  "overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-primary/20 hover:shadow-2xl animate-fade-in-up",
+                  )}
+                style={{ animationDelay: `${index * 150}ms`}}
+              >
                 <CardHeader className="p-0">
                   <Image
                     src={service.image}

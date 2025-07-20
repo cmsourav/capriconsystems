@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const services = [
   {
@@ -39,7 +40,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="container mx-auto px-4 py-16 md:py-24">
+    <div className="container mx-auto px-4 py-16 md:py-24 animate-fade-in-up">
       <section className="text-center mb-16">
         <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
@@ -50,7 +51,7 @@ export default function ServicesPage() {
       <div className="space-y-20">
         {services.map((service, index) => (
           <section key={service.id} id={service.id} className="scroll-mt-20">
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden animate-fade-in-up" style={{ animationDelay: `${index * 150}ms`}}>
               <div className={`grid md:grid-cols-2 items-center gap-8`}>
                 <div className={`p-8 ${index % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
                   <h2 className="font-headline text-3xl font-bold mb-4">{service.title}</h2>
