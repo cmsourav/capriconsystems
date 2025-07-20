@@ -185,8 +185,7 @@
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
   }
-  .nav-link:hover::after,
-  .nav-link.active::after {
+  .nav-link:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
