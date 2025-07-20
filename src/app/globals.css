@@ -10,8 +10,8 @@
     --card-foreground: 215 25% 27%;
     --popover: 210 20% 98%;
     --popover-foreground: 215 25% 27%;
-    --primary: 142 76% 36%;
-    --primary-foreground: 142 76% 96%;
+    --primary: 219 83% 57%; /* Deep Blue */
+    --primary-foreground: 210 20% 98%;
     --secondary: 210 20% 94%;
     --secondary-foreground: 215 25% 27%;
     --muted: 210 20% 94%;
@@ -22,9 +22,10 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214 20% 91%;
     --input: 214 20% 91%;
-    --ring: 142 76% 36%;
+    --ring: 219 83% 57%;
   }
 
+  /* Keep dark theme for reference if needed, but it's not active by default */
   .dark {
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
@@ -63,6 +64,12 @@
   }
 }
 
+@layer utilities {
+  .perspective-1 {
+    perspective: 1px;
+  }
+}
+
 @layer components {
   /* Glow effect for interactive elements */
   .glow-card {
@@ -92,6 +99,7 @@
   /* Animated background for glassmorphism effect */
   .animated-background {
     @apply relative overflow-hidden;
+    transform-style: preserve-3d;
   }
   .animated-background::before,
   .animated-background::after {
@@ -100,20 +108,27 @@
     border-radius: 50%;
     filter: blur(80px);
     z-index: -1;
+    will-change: transform;
   }
 
   .animated-background::before {
     width: 250px;
     height: 250px;
     background-color: hsl(var(--primary) / 0.15);
-    animation: move-blob-1 15s infinite alternate ease-in-out;
+    /* Slower initial animation */
+    animation: move-blob-1 25s infinite alternate ease-in-out; 
+    /* Parallax effect - starts further back */
+    transform: translateZ(-0.5px) scale(1.5);
   }
   
   .animated-background::after {
     width: 300px;
     height: 300px;
     background-color: hsl(var(--secondary) / 0.15);
-    animation: move-blob-2 20s infinite alternate-reverse ease-in-out;
+    /* Slower initial animation */
+    animation: move-blob-2 30s infinite alternate-reverse ease-in-out;
+    /* Parallax effect - starts even further back */
+    transform: translateZ(-1px) scale(2);
   }
 }
 
@@ -131,4 +146,12 @@
   50% { bottom: 80%; right: 70%; }
   75% { bottom: 30%; right: 20%; }
   100% { bottom: 10%; right: 15%; }
+}
+
+@layer base {
+  body {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
 }
