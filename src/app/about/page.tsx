@@ -29,7 +29,7 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-16 md:py-24">
       {/* Hero Section */}
       <AnimateOnScroll as="section" className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">About LuminTech Solutions</h1>
+        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">About Capricon Systems</h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
           We are a team of passionate tech enthusiasts dedicated to building high-performance computers and providing top-tier tech support.
         </p>
@@ -44,7 +44,7 @@ export default function AboutPage() {
               Our mission is to empower gamers, creators, and professionals with technology that unleashes their full potential. We believe in quality craftsmanship, transparent pricing, and building lasting relationships with our clients. Every machine we build and every problem we solve is a testament to our commitment to excellence.
             </p>
             <p className="text-muted-foreground">
-              Founded in 2020, LuminTech was born from a desire to create a computer shop that prioritizes customer needs and pushes the boundaries of performance and design.
+              Founded in 2020, Capricon Systems was born from a desire to create a computer shop that prioritizes customer needs and pushes the boundaries of performance and design.
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll as="div" className="order-1 md:order-2" delay={0.2}>

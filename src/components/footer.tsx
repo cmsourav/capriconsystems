@@ -8,10 +8,10 @@ export function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
             <Cpu className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline">LuminTech Solutions</span>
+            <span className="font-bold font-headline">Capricon Systems</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} LuminTech Solutions. All rights reserved.
+            &copy; {new Date().getFullYear()} Capricon Systems. All rights reserved.
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Twitter</Link>

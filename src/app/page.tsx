@@ -104,7 +104,7 @@ export default function Home() {
             <span className="text-primary block"><AnimatedHeroText /></span>
           </h1>
           <p className="max-w-3xl mx-auto mt-4 text-base md:text-xl text-muted-foreground">
-            LuminTech Solutions is your premier destination for high-performance custom PCs, expert repairs, and future-proof upgrades.
+            Capricon Systems is your premier destination for high-performance custom PCs, expert repairs, and future-proof upgrades.
           </p>
           <div className="mt-8 flex justify-center gap-4">
             <Button asChild size="lg" className="glow-card">
@@ -121,7 +121,7 @@ export default function Home() {
       <section className="w-full py-16 md:py-24 bg-card/50">
           <div className="container mx-auto px-4">
               <AnimateOnScroll>
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Why Choose LuminTech?</h2>
+                <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Capricon Systems?</h2>
               </AnimateOnScroll>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChooseUsItems.map((item, index) => (

@@ -27,7 +27,7 @@ export function Header() {
         onClick={() => setSheetOpen(false)}
         className={cn(
           'relative text-sm font-medium transition-colors hover:text-primary nav-link',
-          isActive ? 'text-primary active' : 'text-muted-foreground',
+          isActive ? 'text-primary' : 'text-muted-foreground',
           isMobile && 'text-lg'
         )}
       >
@@ -41,7 +41,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Cpu className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline">LuminTech Solutions</span>
+          <span className="font-bold font-headline">Capricon Systems</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -64,7 +64,7 @@ export function Header() {
               <div className="flex flex-col p-6">
                 <Link href="/" className="flex items-center gap-2 mb-8" onClick={() => setSheetOpen(false)}>
                   <Cpu className="h-6 w-6 text-primary" />
-                  <span className="font-bold font-headline">LuminTech Solutions</span>
+                  <span className="font-bold font-headline">Capricon Systems</span>
                 </Link>
                 <nav className="flex flex-col gap-6">
                   {navItems.map(item => (

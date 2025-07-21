@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('dark', inter.variable, spaceGrotesk.variable)}>
       <head>
-        <title>LuminTech Solutions</title>
+        <title>Capricon Systems</title>
         <meta name="description" content="Your premier destination for custom PCs, repairs, and tech solutions." />
       </head>
       <body className="font-body antialiased">
