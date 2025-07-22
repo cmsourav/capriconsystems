@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Cpu, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -40,7 +40,6 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Cpu className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline">Capricon Systems</span>
         </Link>
 
@@ -63,7 +62,6 @@ export function Header() {
             <SheetContent side="right" className="bg-background/70 backdrop-blur-lg w-[80vw]">
               <div className="flex flex-col p-6">
                 <Link href="/" className="flex items-center gap-2 mb-8" onClick={() => setSheetOpen(false)}>
-                  <Cpu className="h-6 w-6 text-primary" />
                   <span className="font-bold font-headline">Capricon Systems</span>
                 </Link>
                 <nav className="flex flex-col gap-6">

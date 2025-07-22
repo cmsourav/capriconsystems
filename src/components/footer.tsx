@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Cpu } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -7,7 +6,6 @@ export function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <Cpu className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline">Capricon Systems</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
