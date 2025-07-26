@@ -9,8 +9,23 @@ const contactSchema = z.object({
   message: z.string().min(10),
 });
 
-export async function submitContactForm(data: unknown): Promise<{ success: boolean; message: string }> {
-  const validatedFields = contactSchema.safeParse(data);
+export type ContactFormState = {
+  success: boolean;
+  message: string;
+}
+
+export async function submitContactForm(
+  prevState: ContactFormState,
+  formData: FormData
+): Promise<ContactFormState> {
+  
+  const validatedFields = contactSchema.safeParse({
+    name: formData.get('name'),
+    email: formData.get('email'),
+    subject: formData.get('subject'),
+    message: formData.get('message'),
+  });
+
 
   if (!validatedFields.success) {
     console.error('Validation failed:', validatedFields.error.flatten().fieldErrors);
@@ -21,11 +36,11 @@ export async function submitContactForm(data: unknown): Promise<{ success: boole
   console.log('Received contact form submission:', validatedFields.data);
   
   try {
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    // Here you would integrate with an email service like Resend, SendGrid, etc.
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1500));
     
     // Simulate a random failure to demonstrate error handling
-    if (Math.random() < 0.1) {
+    if (Math.random() < 0.2) {
       throw new Error('Email service is currently unavailable.');
     }
 

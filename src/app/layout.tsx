@@ -7,6 +7,9 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
+import { UIProvider } from '@/contexts/ui-context';
+import { LoadingIndicator } from '@/components/ui/loading-indicator';
+import { MessageBox } from '@/components/ui/message-box';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -30,12 +33,16 @@ export default function RootLayout({
         <meta name="description" content="Your premier destination for custom PCs, repairs, and tech solutions." />
       </head>
       <body className="font-body antialiased">
+        <UIProvider>
           <div className="flex flex-col min-h-screen animated-background">
             <Header />
             <main className="flex-grow">{children}</main>
             <Footer />
           </div>
           <Toaster />
+          <LoadingIndicator />
+          <MessageBox />
+        </UIProvider>
       </body>
     </html>
   );
