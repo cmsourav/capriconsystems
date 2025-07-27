@@ -1,8 +1,8 @@
 
 'use client';
 
-import { useFormStatus } from 'react-dom';
-import { useActionState, useEffect } from 'react';
+import { useFormStatus, useFormState } from 'react-dom';
+import { useEffect, useActionState } from 'react';
 import { useUI } from '@/contexts/ui-context';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
 import { Button } from '@/components/ui/button';
@@ -14,7 +14,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending} className="w-full">
+    <Button type="submit" disabled={pending} className="w-full mt-2">
       {pending ? 'Sending...' : 'Send Message'}
     </Button>
   );
@@ -49,7 +49,7 @@ function ContactFormBody({ formAction, state }: { formAction: (payload: FormData
   }, [state, showMessage]);
 
   return (
-    <form action={formAction} className="space-y-6">
+    <form action={formAction} className="space-y-4">
       <div className="space-y-2">
         <label htmlFor="name" className="text-sm font-medium leading-none">Full Name</label>
         <Input id="name" name="name" placeholder="John Doe" required />
