@@ -1,8 +1,8 @@
 
 'use client';
 
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
+import { useActionState, useEffect } from 'react';
 import { useUI } from '@/contexts/ui-context';
 import { submitContactForm, type ContactFormState } from '@/app/contact/actions';
 import { Button } from '@/components/ui/button';
@@ -81,7 +81,7 @@ export function ContactForm() {
     message: '',
   };
 
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
 
   return (
     <Card className="bg-card/50">
