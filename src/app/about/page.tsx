@@ -9,9 +9,9 @@ import React, { useRef } from 'react';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 
 const teamMembers = [
-  { name: 'Alex Johnson', role: 'Founder & Lead Engineer', avatar: 'https://placehold.co/100x100.png', aiHint: 'man portrait' },
-  { name: 'Maria Garcia', role: 'Hardware Specialist', avatar: 'https://placehold.co/100x100.png', aiHint: 'woman portrait' },
-  { name: 'Sam Chen', role: 'Customer Support Lead', avatar: 'https://placehold.co/100x100.png', aiHint: 'person portrait' },
+  { name: 'Manoj', role: 'Founder & Lead Engineer', avatar: 'https://placehold.co/100x100.png', aiHint: 'man portrait' },
+  { name: 'Sourav', role: 'Hardware Specialist', avatar: 'https://placehold.co/100x100.png', aiHint: 'woman portrait' },
+  { name: 'Albin', role: 'Customer Support Lead', avatar: 'https://placehold.co/100x100.png', aiHint: 'person portrait' },
 ];
 
 const GlowCard = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {

@@ -190,3 +190,8 @@
     transform-origin: bottom left;
   }
 }
+
+/* Add this CSS rule to hide the N icon. Replace '.your-n-icon-selector' with the actual class or ID of the element containing the icon. */
+.your-n-icon-selector {
+  display: none !important;
+}

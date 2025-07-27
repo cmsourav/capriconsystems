@@ -22,7 +22,7 @@ export default function ContactPage() {
               <h3 className="font-semibold text-lg">Email</h3>
               <p className="text-muted-foreground">Reach out to us for any inquiries.</p>
               <a href="mailto:contact@capriconsystems.com" className="text-primary hover:underline">
-                contact@capriconsystems.com
+                info@capriconsystems.com
               </a>
             </div>
           </div>
@@ -32,9 +32,8 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-lg">Phone</h3>
-              <p className="text-muted-foreground">Mon-Fri, 9am - 6pm</p>
-              <a href="tel:+1234567890" className="text-primary hover:underline">
-                (123) 456-7890
+              <a href="tel:+971 524298611" className="text-primary hover:underline">
+              +971 52 429 8611
               </a>
             </div>
           </div>
@@ -44,7 +43,9 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-lg">Office</h3>
-              <p className="text-muted-foreground">123 Tech Street, Silicon Valley, CA 94000</p>
+              <p className="text-muted-foreground">Sharjah Media City(Shams)</p>
+              <p className="text-muted-foreground">PO.Box 515000 </p>
+              <p className="text-muted-foreground">Sharjah, UAE </p>
             </div>
           </div>
         </div>
