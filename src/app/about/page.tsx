@@ -2,17 +2,29 @@
 'use client';
 
 import Image from 'next/image';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { useGlow } from '@/hooks/use-glow';
 import React, { useRef } from 'react';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
+import { ShieldCheck, Handshake, Gem } from 'lucide-react';
 
-const teamMembers = [
-  { name: 'Manoj', role: 'Founder & Lead Engineer', avatar: 'https://placehold.co/100x100.png', aiHint: 'man portrait' },
-  { name: 'Sourav', role: 'Hardware Specialist', avatar: 'https://placehold.co/100x100.png', aiHint: 'woman portrait' },
-  { name: 'Albin', role: 'Customer Support Lead', avatar: 'https://placehold.co/100x100.png', aiHint: 'person portrait' },
+const commitments = [
+  { 
+    icon: <Gem className="w-10 h-10 text-primary" />,
+    title: 'Uncompromising Quality', 
+    description: 'We believe in excellence from the ground up. That means sourcing only the highest-quality, industry-trusted components for every build and repair, ensuring reliability and peak performance.' 
+  },
+  { 
+    icon: <Handshake className="w-10 h-10 text-primary" />,
+    title: 'Transparent Process', 
+    description: 'We foster trust through clarity. From initial consultation to final handover, you\'ll receive clear, honest communication about pricing, options, and every step of your journey with us.' 
+  },
+  { 
+    icon: <ShieldCheck className="w-10 h-10 text-primary" />,
+    title: 'Dedicated Support', 
+    description: 'Our relationship doesn’t end at the point of sale. We stand by our work with robust warranties and dedicated, accessible support, ensuring your investment is protected for the long run.' 
+  },
 ];
 
 const GlowCard = ({ children, className, ...props }: React.HTMLAttributes<HTMLDivElement>) => {
@@ -63,25 +75,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Meet the Team Section */}
+      {/* Our Commitment Section */}
       <section>
-        <AnimateOnScroll as="h2" className="font-headline text-3xl font-bold text-center mb-12">Meet the Team</AnimateOnScroll>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-             <AnimateOnScroll key={member.name} delay={0.1 + index * 0.1}>
+        <AnimateOnScroll as="h2" className="font-headline text-3xl font-bold text-center mb-12">Our Commitment to Excellence</AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {commitments.map((commitment, index) => (
+             <AnimateOnScroll key={commitment.title} delay={0.1 + index * 0.1}>
               <GlowCard 
-                className={cn(
-                  "text-center transition-all duration-300 hover:shadow-[0_0_35px_5px_rgba(125,249,255,0.2)] hover:-translate-y-1 h-full",
-                )}
+                className="text-center transition-all duration-300 hover:shadow-[0_0_35px_5px_rgba(125,249,255,0.2)] hover:-translate-y-1 h-full"
               >
                 <Card className="bg-transparent h-full">
                   <CardContent className="p-6 flex flex-col items-center">
-                    <Avatar className="w-24 h-24 mb-4 border-2 border-primary">
-                      <AvatarImage src={member.avatar} alt={member.name} data-ai-hint={member.aiHint}/>
-                      <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
-                    </Avatar>
-                    <h3 className="font-headline text-xl font-semibold">{member.name}</h3>
-                    <p className="text-primary">{member.role}</p>
+                    <div className="mb-4">{commitment.icon}</div>
+                    <h3 className="font-headline text-xl font-semibold mb-2">{commitment.title}</h3>
+                    <p className="text-muted-foreground">{commitment.description}</p>
                   </CardContent>
                 </Card>
               </GlowCard>
