@@ -41,12 +41,17 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-            <div className="p-1 bg-gray-900 rounded-full">
-                <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
-            </div>
-            <span className="font-bold font-headline">Capricon Systems</span>
-        </Link>
+        <div className="flex items-center gap-2">
+            <Link href="/" aria-label="Capricon Systems Home">
+                <div className="p-1 bg-gray-900 rounded-full">
+                    <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
+                </div>
+            </Link>
+            <Link href="/">
+                <span className="font-bold font-headline">Capricon Systems</span>
+            </Link>
+        </div>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-6">
@@ -66,12 +71,16 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="bg-background/70 backdrop-blur-lg w-[80vw]">
               <div className="flex flex-col p-6">
-                <Link href="/" className="flex items-center gap-2 mb-8" onClick={() => setSheetOpen(false)}>
-                   <div className="p-1 bg-gray-900 rounded-full">
-                    <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
-                   </div>
-                  <span className="font-bold font-headline">Capricon Systems</span>
-                </Link>
+                 <div className="flex items-center gap-2 mb-8">
+                    <Link href="/" aria-label="Capricon Systems Home" onClick={() => setSheetOpen(false)}>
+                        <div className="p-1 bg-gray-900 rounded-full">
+                            <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
+                        </div>
+                    </Link>
+                    <Link href="/" onClick={() => setSheetOpen(false)}>
+                        <span className="font-bold font-headline">Capricon Systems</span>
+                    </Link>
+                </div>
                 <nav className="flex flex-col gap-6">
                   {navItems.map(item => (
                     <NavLink key={item.href} {...item} isMobile />
