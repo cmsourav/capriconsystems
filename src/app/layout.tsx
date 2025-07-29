@@ -31,6 +31,7 @@ export default function RootLayout({
       <head>
         <title>Capricon Systems</title>
         <meta name="description" content="Your premier destination for custom PCs, repairs, and tech solutions." />
+        <link rel="icon" href="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" type="image/png" />
       </head>
       <body className="font-body antialiased">
         <UIProvider>

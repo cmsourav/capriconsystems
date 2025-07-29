@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
@@ -26,7 +27,7 @@ export function Header() {
         href={href}
         onClick={() => setSheetOpen(false)}
         className={cn(
-          'relative text-sm font-medium transition-colors hover:text-primary nav-link',
+          'relative text-sm font-medium transition-colors hover:text-primary',
           isActive ? 'text-primary' : 'text-muted-foreground',
           isMobile && 'text-lg'
         )}
@@ -40,6 +41,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
           <span className="font-bold font-headline">Capricon Systems</span>
         </Link>
 
@@ -62,6 +64,7 @@ export function Header() {
             <SheetContent side="right" className="bg-background/70 backdrop-blur-lg w-[80vw]">
               <div className="flex flex-col p-6">
                 <Link href="/" className="flex items-center gap-2 mb-8" onClick={() => setSheetOpen(false)}>
+                   <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
                   <span className="font-bold font-headline">Capricon Systems</span>
                 </Link>
                 <nav className="flex flex-col gap-6">
