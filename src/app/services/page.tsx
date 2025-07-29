@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -7,7 +6,6 @@ import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useGlow } from '@/hooks/use-glow';
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
 const services = [
@@ -39,8 +37,8 @@ const services = [
     id: 'consulting',
     title: 'Tech Consulting',
     description: 'Navigating the world of tech can be daunting. We offer expert advice for your home or small business, from network setup to choosing the right software and hardware for your needs.',
-    image: 'https://placehold.co/600x400.png',
-    aiHint: 'server room',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    aiHint: 'data analysis',
     features: ['Home Network Setup', 'Small Business IT Support', 'Hardware Recommendations', 'Security Audits'],
   },
 ];
@@ -94,12 +92,10 @@ export default function ServicesPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
-      <AnimateOnScroll as="section" className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-        <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-          We offer a comprehensive range of services to meet all your computing needs.
-        </p>
-      </AnimateOnScroll>
+      <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4 text-center">Our Services</h1>
+      <p className="max-w-3xl mx-auto text-lg text-muted-foreground text-center mb-16">
+        We offer a comprehensive range of services to meet all your computing needs.
+      </p>
 
       <div className="grid md:grid-cols-2 gap-16 items-start">
         {/* Left Column: Text Content */}
