@@ -57,7 +57,17 @@ const ServiceTextContent = ({ service, onVisible }: { service: typeof services[0
   }, [isVisible, service.id, onVisible]);
 
   return (
-    <div ref={ref} id={service.id} className="min-h-[60vh] flex items-center">
+    <div ref={ref} id={service.id} className="min-h-[60vh] flex flex-col justify-center">
+       <div className="md:hidden mb-8">
+          <Image
+            src={service.image}
+            alt={service.title}
+            width={600}
+            height={400}
+            data-ai-hint={service.aiHint}
+            className="rounded-xl shadow-lg object-cover w-full aspect-video"
+          />
+        </div>
       <div className="py-12">
         <h2 className="font-headline text-3xl font-bold mb-4">{service.title}</h2>
         <p className="text-muted-foreground mb-6">{service.description}</p>
