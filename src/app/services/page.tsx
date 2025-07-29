@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useGlow } from '@/hooks/use-glow';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { AnimateOnScroll } from '@/components/AnimateOnScroll';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 
@@ -78,6 +78,10 @@ const ServiceTextContent = ({ service, onVisible }: { service: typeof services[0
 export default function ServicesPage() {
   const [activeServiceId, setActiveServiceId] = useState(services[0].id);
 
+  const handleVisibilityChange = useCallback((id: string) => {
+    setActiveServiceId(id);
+  }, []);
+
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
       <AnimateOnScroll as="section" className="text-center mb-16">
@@ -89,12 +93,12 @@ export default function ServicesPage() {
 
       <div className="grid md:grid-cols-2 gap-16 items-start">
         {/* Left Column: Text Content */}
-        <div className="space-y-8">
+        <div>
           {services.map(service => (
             <ServiceTextContent 
               key={service.id} 
               service={service} 
-              onVisible={setActiveServiceId}
+              onVisible={handleVisibilityChange}
             />
           ))}
         </div>
@@ -110,7 +114,7 @@ export default function ServicesPage() {
                 fill
                 data-ai-hint={service.aiHint}
                 className={cn(
-                  'object-cover rounded-xl shadow-2xl transition-opacity duration-500',
+                  'object-cover rounded-xl shadow-2xl transition-opacity duration-500 absolute inset-0',
                   activeServiceId === service.id ? 'opacity-100' : 'opacity-0'
                 )}
               />
