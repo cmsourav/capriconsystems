@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -49,7 +50,7 @@ export default function AboutPage() {
           </AnimateOnScroll>
           <AnimateOnScroll as="div" className="order-1 md:order-2" delay={0.2}>
             <Image 
-              src="https://placehold.co/600x400.png"
+              src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753806493/logo_only_w_zcua2d.png"
               alt="Our workshop"
               width={600}
               height={400}
