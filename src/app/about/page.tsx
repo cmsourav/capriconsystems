@@ -49,14 +49,16 @@ export default function AboutPage() {
             </p>
           </AnimateOnScroll>
           <AnimateOnScroll as="div" className="order-1 md:order-2" delay={0.2}>
-            <Image 
-              src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753806493/logo_only_w_zcua2d.png"
-              alt="Our workshop"
-              width={600}
-              height={400}
-              data-ai-hint="computer workshop"
-              className="rounded-lg shadow-lg"
-            />
+            <div className="p-4 rounded-lg bg-card/50 border border-white/20 shadow-lg backdrop-blur-lg glow-card">
+              <Image 
+                src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753806493/logo_only_w_zcua2d.png"
+                alt="Our workshop"
+                width={600}
+                height={400}
+                data-ai-hint="computer workshop"
+                className="rounded-lg"
+              />
+            </div>
           </AnimateOnScroll>
         </div>
       </section>
