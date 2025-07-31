@@ -31,10 +31,11 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   // IMPORTANT: You must configure your own EmailJS account and add the following
   // environment variables to a .env.local file in your project root.
-  // NEXT_PUBLIC_EMAILJS_SERVICE_ID
-  // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-  // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
   // The form will not work without them.
+  //
+  // NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+  // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+  // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
