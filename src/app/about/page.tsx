@@ -63,7 +63,7 @@ export default function AboutPage() {
           <AnimateOnScroll as="div" className="order-1 md:order-2" delay={0.2}>
             <div className="p-4 rounded-lg bg-card/50 border border-white/20 shadow-lg backdrop-blur-lg glow-card">
               <Image 
-                src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png"
+                src="https://placehold.co/600x400.png"
                 alt="Our workshop"
                 width={600}
                 height={400}
