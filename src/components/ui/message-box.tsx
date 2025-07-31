@@ -16,10 +16,10 @@ export function MessageBox() {
   const isError = message.type === 'error';
 
   return (
-    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
       <div
         className={cn(
-          'w-full max-w-sm rounded-lg border bg-background p-6 shadow-xl animate-fade-in-blur',
+          'w-full max-w-sm rounded-lg border bg-background p-6 shadow-xl animate-fade-in-blur mx-4 sm:mx-0',
           isError ? 'border-destructive/50' : 'border-primary/50'
         )}
       >
