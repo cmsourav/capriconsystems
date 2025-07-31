@@ -40,10 +40,10 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
     // These values are safe to be in the client-side code as they are public keys for EmailJS
     await emailjs.send(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'service_zv9gh2d',
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_ubsnen9',
+      'service_zv9gh2d',
+      'template_ubsnen9',
       templateParams,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'BczFLffBj-fWqMfq6'
+      'BczFLffBj-fWqMfq6'
     );
 
     return { success: true, message: 'Thank you for your message! We will get back to you shortly.' };
