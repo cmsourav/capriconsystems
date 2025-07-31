@@ -23,7 +23,6 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   if (!validatedFields.success) {
     const errorMessages = validatedFields.error.errors.map(e => e.message).join(' ');
-    console.error('Validation failed:', validatedFields.error.flatten().fieldErrors);
     return { success: false, message: errorMessages || 'Invalid data provided.' };
   }
 
@@ -48,7 +47,6 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
       message: message,
     };
     
-    // Explicitly initialize with the public key
     emailjs.init(publicKey);
 
     await emailjs.send(
