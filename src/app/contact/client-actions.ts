@@ -29,14 +29,6 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   const { name, email, subject, message } = validatedFields.data;
 
-  // IMPORTANT: You must configure your own EmailJS account and add the following
-  // environment variables to a .env.local file in your project root.
-  // The form will not work without them.
-  //
-  // NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-  // NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-  // NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -50,17 +42,20 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   try {
     const templateParams = {
-      user_name: name,
-      user_email: email,
-      user_subject: subject,
-      user_message: message,
+      from_name: name,
+      from_email: email,
+      to_name: 'Capricon Systems',
+      subject: subject,
+      message: message,
     };
+    
+    // Explicitly initialize with the public key
+    emailjs.init(publicKey);
 
     await emailjs.send(
       serviceId,
       templateId,
       templateParams,
-      { publicKey: publicKey }
     );
 
     return { success: true, message: 'Thank you for your message! We will get back to you shortly.' };
