@@ -44,7 +44,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link href="/" aria-label="Capricon Systems Home" className="flex items-center gap-2">
               <div className="p-1 bg-gray-900 rounded-full">
-                  <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
+                  <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753806493/logo_only_w_zcua2d.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
               </div>
               <span className="font-bold font-headline">Capricon Systems</span>
           </Link>
@@ -72,7 +72,7 @@ export function Header() {
                  <div className="flex items-center gap-2 mb-8">
                     <Link href="/" aria-label="Capricon Systems Home" onClick={() => setSheetOpen(false)} className="flex items-center gap-2">
                         <div className="p-1 bg-gray-900 rounded-full">
-                            <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
+                            <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753806493/logo_only_w_zcua2d.png" alt="Capricon Systems Logo" width={40} height={40} className="rounded-full" />
                         </div>
                         <span className="font-bold font-headline">Capricon Systems</span>
                     </Link>
