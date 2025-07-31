@@ -42,9 +42,8 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   try {
     const templateParams = {
-      from_name: name,
-      from_email: email,
-      to_name: 'Capricon Systems',
+      full_name: name,
+      user_email: email,
       subject: subject,
       message: message,
     };
