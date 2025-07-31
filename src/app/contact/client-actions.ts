@@ -42,7 +42,7 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   if (!serviceId || !templateId || !publicKey) {
-    const errorMessage = "EmailJS credentials are not configured. Please check your environment variables.";
+    const errorMessage = "EmailJS credentials are not configured. Please create a .env.local file and add your credentials.";
     console.error(errorMessage);
     return { success: false, message: errorMessage };
   }
@@ -50,18 +50,17 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
 
   try {
     const templateParams = {
-      from_name: name,
-      from_email: email,
-      to_name: 'Capricon Systems',
-      subject: subject,
-      message: message,
+      user_name: name,
+      user_email: email,
+      user_subject: subject,
+      user_message: message,
     };
 
     await emailjs.send(
       serviceId,
       templateId,
       templateParams,
-      publicKey
+      { publicKey: publicKey }
     );
 
     return { success: true, message: 'Thank you for your message! We will get back to you shortly.' };
