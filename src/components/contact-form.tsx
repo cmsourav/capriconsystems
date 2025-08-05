@@ -65,6 +65,11 @@ export function ContactForm() {
           </div>
 
           <div className="space-y-2">
+            <label htmlFor="phone" className="text-sm font-medium leading-none">Phone Number (Optional)</label>
+            <Input id="phone" name="phone" type="tel" placeholder="+1 (555) 123-4567" />
+          </div>
+
+          <div className="space-y-2">
             <label htmlFor="subject" className="text-sm font-medium leading-none">Subject</label>
             <Input id="subject" name="subject" placeholder="Custom PC Build Quote" required />
           </div>

@@ -9,6 +9,7 @@ import { type ContactFormState } from './actions';
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Invalid email address."),
+  phone: z.string().optional(),
   subject: z.string().min(5, "Subject must be at least 5 characters."),
   message: z.string().min(10, "Message must be at least 10 characters."),
 });
@@ -17,6 +18,7 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
   const validatedFields = contactSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
+    phone: formData.get('phone'),
     subject: formData.get('subject'),
     message: formData.get('message'),
   });
@@ -26,14 +28,14 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
     return { success: false, message: errorMessages || 'Invalid data provided.' };
   }
 
-  const { name, email, subject, message } = validatedFields.data;
+  const { name, email, phone, subject, message } = validatedFields.data;
 
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   if (!serviceId || !templateId || !publicKey) {
-    const errorMessage = "EmailJS credentials are not configured. Please create a .env.local file and add your credentials.";
+    const errorMessage = "EmailJS credentials are not configured. Please create a .env file and add your credentials.";
     console.error(errorMessage);
     return { success: false, message: errorMessage };
   }
@@ -43,6 +45,7 @@ export async function sendContactEmail(formData: FormData): Promise<ContactFormS
     const templateParams = {
       full_name: name,
       user_email: email,
+      phone: phone || 'Not provided',
       subject: subject,
       message: message,
     };
