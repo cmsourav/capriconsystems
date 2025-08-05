@@ -18,7 +18,6 @@ export function Footer() {
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Twitter</Link>
             <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">LinkedIn</Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">GitHub</Link>
           </div>
         </div>
       </div>
