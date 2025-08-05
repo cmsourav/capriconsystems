@@ -42,11 +42,11 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/70 backdrop-blur-lg">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Link href="/" aria-label="Capricon Systems Home" className="flex items-center gap-2">
+          <Link href="/" aria-label="Capricon Systems Home" className="flex items-center gap-2 font-bold">
               <div className="bg-gray-900 p-1 rounded-full">
                 <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={32} height={32} className="rounded-full" />
               </div>
-              <span className="font-bold">Capricon Systems</span>
+              <span>Capricon Systems</span>
           </Link>
         </div>
 
@@ -70,11 +70,11 @@ export function Header() {
             <SheetContent side="right" className="bg-background/70 backdrop-blur-lg w-[80vw]">
               <div className="flex flex-col p-6">
                  <div className="flex items-center gap-2 mb-8">
-                    <Link href="/" aria-label="Capricon Systems Home" onClick={() => setSheetOpen(false)} className="flex items-center gap-2">
+                    <Link href="/" aria-label="Capricon Systems Home" onClick={() => setSheetOpen(false)} className="flex items-center gap-2 font-bold">
                       <div className="bg-gray-900 p-1 rounded-full">
                         <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={32} height={32} className="rounded-full" />
                       </div>
-                      <span className="font-bold">Capricon Systems</span>
+                      <span>Capricon Systems</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-6">
