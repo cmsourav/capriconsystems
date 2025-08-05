@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export function WhatsAppButton() {
-  const phoneNumber = '9633803580';
+  const phoneNumber = '971524298611';
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (

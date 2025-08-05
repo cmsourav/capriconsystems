@@ -32,7 +32,7 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="font-semibold text-lg">Phone</h3>
-              <a href="tel:+971 524298611" className="text-primary hover:underline">
+              <a href="tel:+971524298611" className="text-primary hover:underline">
               +971 52 429 8611
               </a>
             </div>
