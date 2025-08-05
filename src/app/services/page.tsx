@@ -67,7 +67,7 @@ const ServiceTextContent = ({ service, onVisible }: { service: typeof services[0
           />
         </div>
       <div className="py-12">
-        <h2 className="font-headline text-3xl font-bold mb-4">{service.title}</h2>
+        <h2 className="text-3xl font-bold mb-4">{service.title}</h2>
         <p className="text-muted-foreground mb-6">{service.description}</p>
         <ul className="space-y-3">
           {service.features.map(feature => (
@@ -92,7 +92,7 @@ export default function ServicesPage() {
 
   return (
     <div className="container mx-auto px-4 py-16 md:py-24">
-      <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4 text-center">Our Services</h1>
+      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Our Services</h1>
       <p className="max-w-3xl mx-auto text-lg text-muted-foreground text-center mb-16">
         We offer a comprehensive range of services to meet all your computing needs.
       </p>

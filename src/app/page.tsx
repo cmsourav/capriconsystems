@@ -98,7 +98,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="w-full text-center py-20 md:py-32 lg:py-40 bg-background">
         <AnimateOnScroll className="container mx-auto px-4">
-          <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter leading-tight">
             Cutting-Edge Tech
             <br />
             <span className="text-primary block"><AnimatedHeroText /></span>
@@ -121,7 +121,7 @@ export default function Home() {
       <section className="w-full py-16 md:py-24 bg-card/50">
           <div className="container mx-auto px-4">
               <AnimateOnScroll>
-                <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Capricon Systems?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Choose Capricon Systems?</h2>
               </AnimateOnScroll>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {whyChooseUsItems.map((item, index) => (
@@ -131,7 +131,7 @@ export default function Home() {
                       delay={index * 0.1}
                     >
                         {item.icon}
-                        <h3 className="font-headline text-2xl font-semibold mt-6 mb-2">{item.title}</h3>
+                        <h3 className="text-2xl font-semibold mt-6 mb-2">{item.title}</h3>
                         <p className="text-muted-foreground">{item.description}</p>
                     </AnimateOnScroll>
                 ))}
@@ -143,7 +143,7 @@ export default function Home() {
       <section className="w-full py-16 md:py-24">
         <div className="container mx-auto px-4">
           <AnimateOnScroll>
-            <h2 className="font-headline text-3xl md:text-4xl font-bold text-center mb-12">Featured Services</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Services</h2>
           </AnimateOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
@@ -165,7 +165,7 @@ export default function Home() {
                       />
                     </CardHeader>
                     <CardContent className="p-6">
-                      <CardTitle className="font-headline text-2xl mb-2">{service.title}</CardTitle>
+                      <CardTitle className="text-2xl mb-2">{service.title}</CardTitle>
                       <p className="text-muted-foreground mb-4">{service.description}</p>
                       <Button asChild variant="link" className="p-0 h-auto text-primary">
                         <Link href={service.link}>Learn More &rarr;</Link>

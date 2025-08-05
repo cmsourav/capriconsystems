@@ -42,7 +42,7 @@ export default function AboutPage() {
     <div className="container mx-auto px-4 py-16 md:py-24">
       {/* Hero Section */}
       <AnimateOnScroll as="section" className="text-center mb-16">
-        <h1 className="font-headline text-4xl md:text-5xl font-bold mb-4">About Capricon Systems</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">About Capricon Systems</h1>
         <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
           We are a team of passionate tech enthusiasts dedicated to building high-performance computers and providing top-tier tech support.
         </p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
       <section className="mb-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <AnimateOnScroll as="div" className="order-2 md:order-1" delay={0.1}>
-            <h2 className="font-headline text-3xl font-bold mb-4">Our Mission</h2>
+            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
             <p className="text-muted-foreground mb-4">
               Our mission is to empower gamers, creators, and professionals with technology that unleashes their full potential. We believe in quality craftsmanship, transparent pricing, and building lasting relationships with our clients. Every machine we build and every problem we solve is a testament to our commitment to excellence.
             </p>
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
       {/* Our Commitment Section */}
       <section>
-        <AnimateOnScroll as="h2" className="font-headline text-3xl font-bold text-center mb-12">Our Commitment to Excellence</AnimateOnScroll>
+        <AnimateOnScroll as="h2" className="text-3xl font-bold text-center mb-12">Our Commitment to Excellence</AnimateOnScroll>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {commitments.map((commitment, index) => (
              <AnimateOnScroll key={commitment.title} delay={0.1 + index * 0.1}>
@@ -87,7 +87,7 @@ export default function AboutPage() {
                 <Card className="bg-transparent h-full">
                   <CardContent className="p-6 flex flex-col items-center">
                     <div className="mb-4">{commitment.icon}</div>
-                    <h3 className="font-headline text-xl font-semibold mb-2">{commitment.title}</h3>
+                    <h3 className="text-xl font-semibold mb-2">{commitment.title}</h3>
                     <p className="text-muted-foreground">{commitment.description}</p>
                   </CardContent>
                 </Card>

@@ -10,7 +10,7 @@ export function Footer() {
              <div className="bg-gray-900 p-1 rounded-full">
                 <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={24} height={24} className="rounded-full" />
               </div>
-            <span className="font-bold font-headline">Capricon Systems</span>
+            <span className="font-bold">Capricon Systems</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Capricon Systems. All rights reserved.

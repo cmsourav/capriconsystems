@@ -49,7 +49,7 @@ export function ContactForm() {
   return (
     <Card className="bg-card/50">
       <CardHeader>
-        <CardTitle className="font-headline">Send us a Message</CardTitle>
+        <CardTitle>Send us a Message</CardTitle>
         <CardDescription>Fill out the form below and we'll get back to you.</CardDescription>
       </CardHeader>
       <CardContent>

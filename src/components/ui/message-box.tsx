@@ -29,7 +29,7 @@ export function MessageBox() {
           ) : (
             <CheckCircle className="w-12 h-12 text-primary mb-4" />
           )}
-          <h3 className="text-lg font-semibold font-headline mb-2">
+          <h3 className="text-lg font-semibold mb-2">
             {isError ? 'Error' : 'Success'}
           </h3>
           <p className="text-muted-foreground text-sm mb-6">{message.text}</p>

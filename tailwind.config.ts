@@ -19,8 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ["var(--font-inter)", ...fontFamily.sans],
-        headline: ["var(--font-space-grotesk)", ...fontFamily.sans],
+        sans: ["Helvetica", ...fontFamily.sans],
       },
       colors: {
         background: 'hsl(var(--background))',
