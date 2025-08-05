@@ -46,7 +46,7 @@ export function Header() {
               <div className="bg-gray-900 p-1 rounded-full">
                 <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={32} height={32} className="rounded-full" />
               </div>
-              <span className="font-bold font-headline">Capricon Systems</span>
+              <span className="font-bold">Capricon Systems</span>
           </Link>
         </div>
 
@@ -74,7 +74,7 @@ export function Header() {
                       <div className="bg-gray-900 p-1 rounded-full">
                         <Image src="https://res.cloudinary.com/da82lkb5h/image/upload/v1753802837/soura_logo_WI_vuts58.png" alt="Capricon Systems Logo" width={32} height={32} className="rounded-full" />
                       </div>
-                      <span className="font-bold font-headline">Capricon Systems</span>
+                      <span className="font-bold">Capricon Systems</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-6">
