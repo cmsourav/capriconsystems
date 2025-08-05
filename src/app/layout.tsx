@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { UIProvider } from '@/contexts/ui-context';
 import { LoadingIndicator } from '@/components/ui/loading-indicator';
 import { MessageBox } from '@/components/ui/message-box';
+import { WhatsAppButton } from '@/components/ui/whatsapp-button';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -40,6 +41,7 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
           </div>
+          <WhatsAppButton />
           <Toaster />
           <LoadingIndicator />
           <MessageBox />
