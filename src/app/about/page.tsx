@@ -63,11 +63,11 @@ export default function AboutPage() {
           <AnimateOnScroll as="div" className="order-1 md:order-2" delay={0.2}>
             <div className="p-4 rounded-lg bg-card/50 border border-white/20 shadow-lg backdrop-blur-lg glow-card">
               <Image 
-                src="https://placehold.co/600x400.png"
-                alt="Our workshop"
+                src="https://res.cloudinary.com/da82lkb5h/image/upload/v1754409534/capricon_logo_600x400_xcdh31.png"
+                alt="Capricon Systems Logo"
                 width={600}
                 height={400}
-                data-ai-hint="computer workshop"
+                data-ai-hint="company logo"
                 className="rounded-lg"
               />
             </div>
